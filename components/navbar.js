@@ -13,7 +13,8 @@ import {
   MenuList,
   MenuButton,
   IconButton,
-  useColorModeValue
+  useColorModeValue,
+  Icon
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
@@ -88,15 +89,14 @@ const Navbar = props => {
           </LinkItem>
           <LinkItem
             target="_blank"
-            href="https://github.com/craftzdog/craftzdog-homepage"
+            href="https://github.com/Ajitesh13"
             path={path}
             display="inline-flex"
             alignItems="center"
             style={{ gap: 4 }}
             pl={2}
           >
-            <IoLogoGithub />
-            Source
+            <Icon as={IoLogoGithub} boxSize={5} />
           </LinkItem>
         </Stack>
 
@@ -124,11 +124,11 @@ const Navbar = props => {
                 <MenuItem as={MenuLink} href="/posts">
                   Posts
                 </MenuItem>
-                <MenuItem
-                  as={Link}
-                  href="https://github.com/craftzdog/craftzdog-homepage"
-                >
-                  View Source
+                <MenuItem as={Link} href="https://github.com/Ajitesh13">
+                  <Box display="flex" gap="10px" alignItems="center">
+                    <Icon as={IoLogoGithub} />
+                    Github
+                  </Box>
                 </MenuItem>
               </MenuList>
             </Menu>

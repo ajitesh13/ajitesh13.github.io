@@ -23,22 +23,19 @@ const LogoBox = styled.span`
 
 const Logo = () => {
   return (
-    (<Link href="/" scroll={false}>
-
+    <Link href="/" scroll={false}>
       <LogoBox>
-        <FootprintIcon />
         <Text
           color={useColorModeValue('gray.800', 'whiteAlpha.900')}
           fontFamily='M PLUS Rounded 1c", sans-serif'
           fontWeight="bold"
-          ml={3}
+          ml={5}
         >
-          Takuya Matsuyama
+          Ajitesh Panda
         </Text>
       </LogoBox>
-
-    </Link>)
-  );
+    </Link>
+  )
 }
 
 export default Logo
