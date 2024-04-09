@@ -105,7 +105,7 @@ const Home = () => (
         <Box display="flex" flexDirection="column" paddingLeft="1.5em">
           <BioSection date="Nov, 2000">Born in Odisha, India.</BioSection>
           <BioSection date="Aug, 2018">
-            Completed my High School and started my undergrad at IIIT.
+            Completed my High School and started my undergrad at IIIT in CSE
           </BioSection>
           <BioSection date="Oct, 2019">
             Started contributing to Mozilla in their WebExtensions and Devtools
@@ -115,10 +115,14 @@ const Home = () => (
             Got Level 2 Commit Access at Mozilla!
           </BioSection>
           <BioSection date="Aug, 2020">
-            Elected as the Secretary of the PSoc(Programming Society, IIIT-bh).
+            Elected as the Secretary of the{' '}
+            <Link href="https://twitter.com/psociiit">
+              Programming Society IIIT-Bh
+            </Link>
           </BioSection>
           <BioSection date="Sept, 2020">
-            Selected as a Fellow at Major League Hacking
+            Selected as a Fellow at{' '}
+            <Link href="https://mlh.io">Major League Hacking</Link>
           </BioSection>
           <BioSection date="July, 2021">
             Started as an SDE Intern for{' '}
@@ -129,7 +133,7 @@ const Home = () => (
             <Link href="https://www.hackerrank.com/">HackerRank</Link>
           </BioSection>
           <BioSection date="July, 2022">
-            Graduated from IIIT Bhubaneswar as BTech in CSE.
+            Graduated from IIIT Bhubaneswar as BTech in CSE
           </BioSection>
           <BioSection date="Oct, 2023">
             Promoted to SDE2 at{' '}
