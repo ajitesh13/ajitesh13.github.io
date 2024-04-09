@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { ChevronRightIcon, EmailIcon } from '@chakra-ui/icons'
 import Paragraph from '../components/paragraph'
-import { BioSection, BioYear } from '../components/bio'
+import { BioSection } from '../components/bio'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { GridItem } from '../components/grid-item'
@@ -23,7 +23,7 @@ import Image from 'next/image'
 
 const Home = () => (
   <Layout>
-    <Container>
+    <Container maxW="container.sm">
       <Box
         borderRadius="lg"
         mb={6}
@@ -67,32 +67,24 @@ const Home = () => (
           </Box>
         </Box>
       </Box>
-
       <Section delay={0.1}>
         <Heading as="h3" variant="section-title">
           Work
         </Heading>
         <Paragraph>
-          Takuya is a freelance and a full-stack developer based in Osaka with a
-          passion for building digital services/stuff he wants. He has a knack
-          for all things launching products, from planning and designing all the
-          way to solving real-life problems with code. When not online, he loves
-          hanging out with his camera. Currently, he is living off of his own
-          product called{' '}
-          <Link as={NextLink} href="/works/inkdrop" passHref scroll={false}>
-            Inkdrop
-          </Link>
-          . He publishes content for marketing his products and his YouTube
-          channel called &quot;
-          <Link
-            as={NextLink}
-            href="https://www.youtube.com/devaslife"
-            passHref
-            target="_blank"
-          >
-            Dev as Life
-          </Link>
-          &quot; has more than 100k subscribers.
+          Hi! Thanks a lot for visiting my site, My name is Ajitesh, and I am a
+          software engineer currently working as an SDE2 at HackerRank. I
+          completed my BTech in Computer Science and Engineering from IIIT
+          Bhubaneswar, graduating in 2022. I am a web enthusiast with strong
+          expertise in JavaScript and React, but I have also tinkered around
+          with a variety of technologies such as LLMs, VLMs, Cloud Native,
+          Blockchain,Flutter, Webextensions, and game development using Godot
+          and Unity.
+          <br />
+          <br />I am a builder at heart and have a strong passion for
+          entrepreneurship. I love to create exciting products in new
+          technologies and would be thrilled to discuss any ideas that you are
+          excited about.
         </Paragraph>
         <Box align="center" my={4}>
           <Button
@@ -106,48 +98,54 @@ const Home = () => (
           </Button>
         </Box>
       </Section>
-
       <Section delay={0.2}>
         <Heading as="h3" variant="section-title">
           Bio
         </Heading>
-        <BioSection>
-          <BioYear>1984</BioYear>
-          Born in Osaka (大阪), Japan.
-        </BioSection>
-        <BioSection>
-          <BioYear>2010</BioYear>
-          Completed the Master&apos;s Program in the Graduate School of
-          Information Science at Nara Institute of Science and Technology
-          (奈良先端科学技術大学院大学情報科学研究科修士課程)
-        </BioSection>
-        <BioSection>
-          <BioYear>2010</BioYear>
-          Worked at Yahoo! Japan (ヤフー株式会社入社)
-        </BioSection>
-        <BioSection>
-          <BioYear>2012 to present</BioYear>
-          Working as a freelancer
-        </BioSection>
+        <Box display="flex" flexDirection="column" paddingLeft="1.5em">
+          <BioSection date="Nov, 2000">Born in Odisha, India.</BioSection>
+          <BioSection date="Aug, 2018">
+            Completed my High School and started my undergrad at IIIT.
+          </BioSection>
+          <BioSection date="Oct, 2019">
+            Started contributing to Mozilla in their WebExtensions and Devtools
+            team
+          </BioSection>
+          <BioSection date="Feb, 2020">
+            Got Level 2 Commit Access at Mozilla!
+          </BioSection>
+          <BioSection date="Aug, 2020">
+            Elected as the Secretary of the PSoc(Programming Society, IIIT-bh).
+          </BioSection>
+          <BioSection date="Sept, 2020">
+            Selected as a Fellow at Major League Hacking
+          </BioSection>
+          <BioSection date="July, 2021">
+            Started as an SDE Intern for{' '}
+            <Link href="https://www.intervue.io">intervue.io</Link>
+          </BioSection>
+          <BioSection date="Jan, 2022">
+            Started as an SDE Intern for{' '}
+            <Link href="https://www.hackerrank.com/">HackerRank</Link>
+          </BioSection>
+          <BioSection date="July, 2022">
+            Graduated from IIIT Bhubaneswar as BTech in CSE.
+          </BioSection>
+          <BioSection date="Oct, 2023">
+            Promoted to SDE2 at{' '}
+            <Link href="https://www.hackerrank.com/">HackerRank</Link>
+          </BioSection>
+        </Box>
       </Section>
-
       <Section delay={0.3}>
         <Heading as="h3" variant="section-title">
           I ♥
         </Heading>
         <Paragraph>
-          Art, Music,{' '}
-          <Link href="https://illust.odoruinu.net/" target="_blank">
-            Drawing
-          </Link>
-          , Playing Drums,{' '}
-          <Link href="https://500px.com/p/craftzdog" target="_blank">
-            Photography
-          </Link>
-          , Leica, Machine Learning
+          Art, Music, Travelling, Photography and of course, building exciting
+          Stuffs!
         </Paragraph>
       </Section>
-
       <Section delay={0.3}>
         <Heading as="h3" variant="section-title">
           On the web
