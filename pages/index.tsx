@@ -15,11 +15,12 @@ import Paragraph from '../components/paragraph'
 import { BioSection } from '../components/bio'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
-import { GridItem } from '../components/grid-item'
 import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub } from 'react-icons/io5'
+import Image from 'next/image'
+
+import { GridItem } from '../components/grid-item'
 import thumbYouTube from '../public/images/links/youtube.png'
 import thumbInkdrop from '../public/images/works/inkdrop_eyecatch.png'
-import Image from 'next/image'
 
 const Home = () => (
   <Layout>
@@ -86,7 +87,7 @@ const Home = () => (
           technologies and would be thrilled to discuss any ideas that you are
           excited about.
         </Paragraph>
-        <Box align="center" my={4}>
+        <Box alignItems="center" my={4}>
           <Button
             as={NextLink}
             href="/works"
@@ -156,52 +157,41 @@ const Home = () => (
         </Heading>
         <List>
           <ListItem>
-            <Link href="https://github.com/craftzdog" target="_blank">
+            <Link href="https://github.com/ajitesh13" target="_blank">
               <Button
                 variant="ghost"
                 colorScheme="teal"
                 leftIcon={<IoLogoGithub />}
               >
-                @craftzdog
+                @ajitesh13
               </Button>
             </Link>
           </ListItem>
           <ListItem>
-            <Link href="https://twitter.com/inkdrop_app" target="_blank">
+            <Link href="https://twitter.com/iamAjiteshp" target="_blank">
               <Button
                 variant="ghost"
                 colorScheme="teal"
                 leftIcon={<IoLogoTwitter />}
               >
-                @inkdrop_app (English)
+                @iamAjiteshp
               </Button>
             </Link>
           </ListItem>
           <ListItem>
-            <Link href="https://twitter.com/craftzdog" target="_blank">
-              <Button
-                variant="ghost"
-                colorScheme="teal"
-                leftIcon={<IoLogoTwitter />}
-              >
-                @craftzdog (日本語)
-              </Button>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link href="https://instagram.com/craftzdog" target="_blank">
+            <Link href="https://www.instagram.com/_beingbest/" target="_blank">
               <Button
                 variant="ghost"
                 colorScheme="teal"
                 leftIcon={<IoLogoInstagram />}
               >
-                @craftzdog
+                @_beingbest
               </Button>
             </Link>
           </ListItem>
         </List>
 
-        <SimpleGrid columns={[1, 2, 2]} gap={6}>
+        {/* <SimpleGrid columns={[1, 2, 2]} gap={6}>
           <GridItem
             href="https://www.youtube.com/devaslife"
             title="Dev as Life"
@@ -224,9 +214,9 @@ const Home = () => (
         <p>
           Join me on a behind-the-scenes coding journey. Weekly updates on
           projects, tutorials, and videos
-        </p>
+        </p> */}
 
-        <Box align="center" my={4}>
+        {/* <Box align="center" my={4}>
           <Button
             as={NextLink}
             href="https://www.devas.life/"
@@ -236,7 +226,7 @@ const Home = () => (
           >
             Sign up my newsletter here
           </Button>
-        </Box>
+        </Box> */}
       </Section>
     </Container>
   </Layout>
