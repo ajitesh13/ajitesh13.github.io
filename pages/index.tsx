@@ -87,7 +87,7 @@ const Home = () => (
           technologies and would be thrilled to discuss any ideas that you are
           excited about.
         </Paragraph>
-        <Box alignItems="center" my={4}>
+        <Box alignItems="center" my={4} display="flex" flexDirection="column">
           <Button
             as={NextLink}
             href="/works"
