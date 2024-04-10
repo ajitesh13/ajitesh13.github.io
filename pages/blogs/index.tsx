@@ -8,7 +8,7 @@ import thumbCherryBlossoms from '../../public/images/wallpapers/cherry-blossoms/
 import thumbMachiya from '../../public/images/wallpapers/machiya/ls-03.jpg'
 
 const Wallpapers = () => (
-  <Layout title="Ajitesh Panda Blogs">
+  <Layout title="Blogs">
     <Container>
       <Heading as="h3" fontSize={20} mb={4}>
         Coming Soon...
