@@ -8,13 +8,13 @@ import thumbCherryBlossoms from '../../public/images/wallpapers/cherry-blossoms/
 import thumbMachiya from '../../public/images/wallpapers/machiya/ls-03.jpg'
 
 const Wallpapers = () => (
-  <Layout title="Wallpaper Packs">
+  <Layout title="Ajitesh Panda Blogs">
     <Container>
       <Heading as="h3" fontSize={20} mb={4}>
-        Wallpaper Packs
+        Coming Soon...
       </Heading>
-
-      <Box my={4}>
+      <Box mb="100px">Try to pen down my experiences. Stay tuned!</Box>
+      {/* <Box my={4}>
         The wallpaper packs offer a selection of carefully curated images
         from&nbsp;
         <Link as={NextLink} href="https://www.youtube.com/devaslife">
@@ -26,7 +26,7 @@ const Wallpapers = () => (
       <Section>
         <SimpleGrid columns={[1, 2, 2]} gap={6}>
           <WorkGridItem
-            category="wallpapers"
+            category="blogs"
             id="machiya"
             title="Machiya"
             thumbnail={thumbMachiya}
@@ -44,7 +44,7 @@ const Wallpapers = () => (
             tutorial
           </WorkGridItem>
         </SimpleGrid>
-      </Section>
+      </Section> */}
     </Container>
   </Layout>
 )
