@@ -4,9 +4,9 @@ import Section from '../components/section'
 import { WorkGridItem } from '../components/grid-item'
 
 import activityMonitor from '../public/images/works/activitymonitor.png'
-import thumbWalknote from '../public/images/works/walknote_eyecatch.png'
-import thumbFourPainters from '../public/images/works/the-four-painters_eyecatch.jpg'
-import thumbMenkiki from '../public/images/works/menkiki_eyecatch.png'
+import webedge from '../public/images/works/webedge.png'
+import famtrack from '../public/images/works/famtrack.png'
+import clarity from '../public/images/works/clarity.png'
 import thumbMargelo from '../public/images/works/margelo_eyecatch.png'
 import thumbModeTokyo from '../public/images/works/modetokyo_eyecatch.png'
 import thumbStyly from '../public/images/works/styly_eyecatch.png'
@@ -20,6 +20,7 @@ const Works = () => (
       <Heading as="h3" fontSize={20} mb={4}>
         Projects
       </Heading>
+
       <SimpleGrid columns={[1, 1, 2]} gap={6}>
         <Section>
           <WorkGridItem
@@ -31,34 +32,25 @@ const Works = () => (
           </WorkGridItem>
         </Section>
         <Section>
-          <WorkGridItem
-            id="walknote"
-            title="walknote"
-            thumbnail={thumbWalknote}
-          >
-            Music recommendation app for iOS
+          <WorkGridItem id="webedge" title="Webedge" thumbnail={webedge}>
+            Bring edge to your web performance
           </WorkGridItem>
         </Section>
 
         <Section delay={0.1}>
-          <WorkGridItem
-            id="fourpainters"
-            title="The four painters"
-            thumbnail={thumbFourPainters}
-          >
+          <WorkGridItem id="famtrack" title="FamTrack" thumbnail={famtrack}>
             A video work generated with deep learning, imitating famous four
             painters like Van Gogh
           </WorkGridItem>
         </Section>
         <Section delay={0.1}>
-          <WorkGridItem id="menkiki" thumbnail={thumbMenkiki} title="Menkiki">
-            An app that suggests ramen(noodle) shops based on a given photo of
-            the ramen you want to eat
+          <WorkGridItem id="clarity" thumbnail={clarity} title="clarity">
+            Presenting clarity, your AI journaling assistant. ✨
           </WorkGridItem>
         </Section>
       </SimpleGrid>
 
-      <Section delay={0.2}>
+      {/* <Section delay={0.2}>
         <Divider my={6} />
 
         <Heading as="h3" fontSize={20} mb={4}>
@@ -118,7 +110,7 @@ const Works = () => (
             Windows
           </WorkGridItem>
         </Section>
-      </SimpleGrid>
+      </SimpleGrid> */}
     </Container>
   </Layout>
 )

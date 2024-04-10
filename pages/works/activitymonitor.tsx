@@ -1,11 +1,4 @@
-import {
-  Container,
-  Badge,
-  Link,
-  List,
-  ListItem,
-  AspectRatio
-} from '@chakra-ui/react'
+import { Container, Badge, Link, List, ListItem } from '@chakra-ui/react'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Title, WorkImage, Meta } from '../../components/work'
 import P from '../../components/paragraph'
@@ -15,9 +8,30 @@ const Work = () => (
   <Layout title="Webextension Activity Monitor">
     <Container>
       <Title>
-        Webextension Activity Monitor <Badge>2020-</Badge>
+        Webextension Activity Monitor
+        {/* <Badge>2020-</Badge> */}
       </Title>
-      <WorkImage src="/images/works/activitymonitor2.png" alt="Github Screenshot" />
+      <WorkImage
+        src="/images/works/activitymonitor2.png"
+        alt="Github Screenshot"
+      />
+      <List ml={4} my={4}>
+        <ListItem>
+          <Meta>Github</Meta>
+          <Link href="https://github.com/ajitesh13/webextension-activity-reporter">
+            ajitesh13/webextension-activity-reporter{' '}
+            <ExternalLinkIcon mx="2px" />
+          </Link>
+        </ListItem>
+        <ListItem>
+          <Meta>Platform</Meta>
+          <span>Firefox &gt;= 72</span>
+        </ListItem>
+        <ListItem>
+          <Meta>Stack</Meta>
+          <span>JavaScript</span>
+        </ListItem>
+      </List>
       <P>
         Extensions do most of their work invisibly from users and hence
         Extension activity is a complete mystery for most users, even advanced
@@ -44,27 +58,17 @@ const Work = () => (
         average user, just for the people who already have a thorough
         understanding of how Extensions work.
       </P>
-      <List ml={4} my={4}>
-        <ListItem>
-          <Meta>Github</Meta>
-          <Link href="https://github.com/ajitesh13/webextension-activity-reporter">
-            ajitesh13/webextension-activity-reporter <ExternalLinkIcon mx="2px" />
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Meta>Platform</Meta>
-          <span>Firefox >= 72</span>
-        </ListItem>
-        <ListItem>
-          <Meta>Stack</Meta>
-          <span>JavaScript</span>
-        </ListItem>
-      </List>
-
-      <WorkImage src="/images/works/activitymonitor.png" alt="Activity Monitor Screenshot" />
-      Here is how the output of the activity monitor looks like: 
-      <br/><br/>
-      <WorkImage src="/images/works/activitymonitor3.png" alt="Activity Monitor Screenshot" />
+      <WorkImage
+        src="/images/works/activitymonitor.png"
+        alt="Activity Monitor Screenshot"
+      />
+      Here is how the output of the activity monitor looks like:
+      <br />
+      <br />
+      <WorkImage
+        src="/images/works/activitymonitor3.png"
+        alt="Activity Monitor Screenshot"
+      />
     </Container>
   </Layout>
 )
