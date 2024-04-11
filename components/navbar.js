@@ -115,14 +115,14 @@ const Navbar = props => {
                 <MenuItem as={MenuLink} href="/">
                   About
                 </MenuItem>
-                <MenuItem as={MenuLink} href="/works">
-                  Works
+                <MenuItem as={MenuLink} href="/projects">
+                  Projects
                 </MenuItem>
-                <MenuItem as={MenuLink} href="/wallpapers">
-                  Wallpapers
+                <MenuItem as={MenuLink} href="/blogs">
+                  Blogs
                 </MenuItem>
                 <MenuItem as={MenuLink} href="/posts">
-                  Posts
+                  Through my lens
                 </MenuItem>
                 <MenuItem as={Link} href="https://github.com/Ajitesh13">
                   <Box display="flex" gap="10px" alignItems="center">

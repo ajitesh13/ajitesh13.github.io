@@ -41,7 +41,7 @@ const Home = () => (
           <Heading as="h2" variant="page-title">
             Ajitesh Panda
           </Heading>
-          <p>Digital Craftsman ( Techie / Developer / Entrepreneur )</p>
+          <p>(Techie / Developer / Entrepreneur)</p>
         </Box>
         <Box
           flexShrink={0}
@@ -73,19 +73,19 @@ const Home = () => (
           Work
         </Heading>
         <Paragraph>
-          Hi! Thanks a lot for visiting my site, My name is Ajitesh, and I am a
+          Hi! Thanks a lot for visiting my site. My name is Ajitesh, and I am a
           software engineer currently working as an SDE2 at HackerRank. I
           completed my BTech in Computer Science and Engineering from IIIT
           Bhubaneswar, graduating in 2022. I am a web enthusiast with strong
           expertise in JavaScript and React, but I have also tinkered around
           with a variety of technologies such as LLMs, VLMs, Cloud Native,
-          Blockchain,Flutter, Webextensions, and game development using Godot
+          Blockchain, Flutter, Webextensions, and game development using Godot
           and Unity.
           <br />
-          <br />I am a builder at heart and have a strong passion for
+          <br />I am a digital craftsman at heart and have a strong passion for
           entrepreneurship. I love to create exciting products in new
           technologies and would be thrilled to discuss any ideas that you are
-          excited about.
+          excited about!
         </Paragraph>
         <Box alignItems="center" my={4} display="flex" flexDirection="column">
           <Button
