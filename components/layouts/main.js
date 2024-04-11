@@ -15,7 +15,10 @@ const Main = ({ children, router }) => {
     <Box as="main" pb={8}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Ajitesh Panda" />
+        <meta
+          name="description"
+          content="Explore the exciting journey of Ajitesh, a passionate techie and a builder by heart. With a strong passion of bringing ideas to life, he is always on the lookout for new challenges and opportunities. Connect with him to know more about his journey and projects."
+        />
         <meta name="author" content="Ajitesh Panda" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link
