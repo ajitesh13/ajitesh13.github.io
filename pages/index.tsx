@@ -90,7 +90,7 @@ const Home = () => (
         <Box alignItems="center" my={4} display="flex" flexDirection="column">
           <Button
             as={NextLink}
-            href="/works"
+            href="/projects"
             scroll={false}
             rightIcon={<ChevronRightIcon />}
             colorScheme="teal"
