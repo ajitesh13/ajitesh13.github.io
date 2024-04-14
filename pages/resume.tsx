@@ -13,7 +13,7 @@ const Resume = () => {
   }, [])
 
   return (
-    <Layout>
+    <Layout title="Resume">
       <Container>
         <Section>
           <Spinner
