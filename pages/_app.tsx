@@ -6,11 +6,21 @@ import Payhip from '../components/payhip'
 import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
+import '../styles/app.scss'
+
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual'
 }
 
-function Website({ Component, pageProps, router }) {
+function Website({
+  Component,
+  pageProps,
+  router
+}: {
+  Component: React.ComponentType
+  pageProps: any
+  router: any
+}) {
   return (
     <>
       <Chakra cookies={pageProps.cookies}>
