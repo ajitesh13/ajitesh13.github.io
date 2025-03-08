@@ -33,7 +33,7 @@ const Home = () => (
         bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         css={{ backdropFilter: 'blur(10px)' }}
       >
-        Hello, I&apos;m an Indie Hacker from India!
+        Hello, I&apos;m a Hacker from India!
       </Box>
 
       <Box display={{ md: 'flex' }}>
@@ -41,7 +41,7 @@ const Home = () => (
           <Heading as="h2" variant="page-title">
             Ajitesh Panda
           </Heading>
-          <p>(Techie / Developer / Entrepreneur)</p>
+          <p>(Techie / Developer / Solopreneur)</p>
         </Box>
         <Box
           flexShrink={0}
