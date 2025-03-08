@@ -178,11 +178,17 @@ const Navbar = (props: NavbarProps) => {
                 <MenuItem as={MenuLink} href="/posts">
                   Through my lens
                 </MenuItem>
-                <MenuItem as={MenuLink} href="https://github.com/Ajitesh13">
-                  <Box display="flex" gap="10px" alignItems="center">
+                <MenuItem
+                  as="a"
+                  rel="noopener noreferrer"
+                  display="block"
+                  gap="10px"
+                  alignItems="center"
+                >
+                  <a href="https://github.com/Ajitesh13" target="_blank">
                     <Icon as={IoLogoGithub} />
-                    Github
-                  </Box>
+                    Github1
+                  </a>
                 </MenuItem>
               </MenuList>
             </Menu>
