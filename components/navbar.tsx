@@ -139,6 +139,9 @@ const Navbar = (props: NavbarProps) => {
           <LinkItem href="/blogs" path={path} target="">
             Blogs
           </LinkItem>
+          <LinkItem href="/books" path={path} target="">
+            Books
+          </LinkItem>
           <LinkItem href="/posts" path={path} target="">
             Through my lens
           </LinkItem>
@@ -174,6 +177,9 @@ const Navbar = (props: NavbarProps) => {
                 </MenuItem>
                 <MenuItem as={MenuLink} href="/blogs">
                   Blogs
+                </MenuItem>
+                <MenuItem as={MenuLink} href="/books">
+                  Books
                 </MenuItem>
                 <MenuItem as={MenuLink} href="/posts">
                   Through my lens
