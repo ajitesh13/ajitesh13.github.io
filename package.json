@@ -8,10 +8,10 @@
     "start": "next start",
     "prettier": "prettier --write .",
     "lint": "next lint",
-    "new-blog": "node scripts/new-blog.js",
-    "new-book": "node scripts/new-book.js",
-    "new-project": "node scripts/new-project.js",
-    "new-photo": "node scripts/new-photo.js"
+    "new-blog": "tsx scripts/new-blog.ts",
+    "new-book": "tsx scripts/new-book.ts",
+    "new-project": "tsx scripts/new-project.ts",
+    "new-photo": "tsx scripts/new-photo.ts"
   },
   "packageManager": "pnpm@10.8.0",
   "keywords": [],
@@ -46,6 +46,7 @@
     "postcss": "^8.5.6",
     "prettier": "^3.0.3",
     "tailwindcss": "^3.4.18",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.3"
   }
 }

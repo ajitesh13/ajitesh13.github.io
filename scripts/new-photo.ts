@@ -1,21 +1,21 @@
-#!/usr/bin/env node
+#!/usr/bin/env tsx
 
-const fs = require('fs')
-const path = require('path')
-const readline = require('readline')
+import * as fs from 'fs'
+import * as path from 'path'
+import * as readline from 'readline'
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 })
 
-function question(prompt) {
+function question(prompt: string): Promise<string> {
   return new Promise(resolve => {
     rl.question(prompt, resolve)
   })
 }
 
-function slugify(text) {
+function slugify(text: string): string {
   return text
     .toString()
     .toLowerCase()
@@ -25,7 +25,7 @@ function slugify(text) {
     .replace(/--+/g, '-')
 }
 
-async function createPhoto() {
+async function createPhoto(): Promise<void> {
   console.log('\n📸 Add a new photo collection\n')
 
   const title = await question('Title: ')
