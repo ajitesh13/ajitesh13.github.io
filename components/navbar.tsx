@@ -1,195 +1,128 @@
-import { forwardRef } from 'react'
-import Logo from './logo'
-import NextLink from 'next/link'
-import {
-  Container,
-  Box,
-  Link,
-  Stack,
-  Heading,
-  Flex,
-  Menu,
-  MenuItem,
-  MenuList,
-  MenuButton,
-  IconButton,
-  useColorModeValue,
-  Icon
-} from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons'
-import ThemeToggleButton from './theme-toggle-button'
-import { IoLogoGithub } from 'react-icons/io5'
+'use client'
 
-interface LinkItemProps {
-  href: string
-  path: string
-  target?: string
-  children: React.ReactNode
-  [key: string]: any
-}
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { Menu, X, Github } from 'lucide-react'
+import { Button } from './ui/button'
+import { useState } from 'react'
+import { cn } from '@/lib/utils'
 
-const LinkItem = ({
-  href,
-  path,
-  target,
-  children,
-  ...props
-}: LinkItemProps) => {
-  const active = path === href
-  const inactiveColor = useColorModeValue('gray.800', 'whiteAlpha.900')
-  const hoverBg = useColorModeValue('teal.50', 'whiteAlpha.300')
+const Navbar = () => {
+  const pathname = usePathname()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const navItems = [
+    { href: '/', label: 'Home' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/blogs', label: 'Blog' },
+    { href: '/books', label: 'Books' },
+    { href: '/posts', label: 'Through my lens' }
+  ]
+
+  const isActive = (href: string) => {
+    return pathname === href
+  }
 
   return (
-    <Link
-      as={NextLink}
-      href={href}
-      scroll={false}
-      p={2}
-      position="relative"
-      borderRadius="md"
-      transition="all 0.2s ease"
-      _hover={{
-        textDecoration: 'none',
-        bg: hoverBg,
-        color: active ? 'teal.500' : useColorModeValue('teal.600', 'teal.200')
-      }}
-      _active={{
-        bg: useColorModeValue('teal.100', 'whiteAlpha.400')
-      }}
-      color={active ? 'teal.500' : inactiveColor}
-      fontWeight={active ? '600' : '400'}
-      {...props}
-    >
-      {children}
-      {active && (
-        <Box
-          position="absolute"
-          bottom="-2px"
-          left="0"
-          right="0"
-          height="2px"
-          bg="teal.500"
-          borderRadius="full"
-          transform="scaleX(0.8)"
-          transition="transform 0.3s ease"
-          _groupHover={{
-            transform: 'scaleX(1)'
-          }}
-        />
-      )}
-    </Link>
-  )
-}
-
-const MenuLink = forwardRef<HTMLAnchorElement, any>((props, ref) => (
-  <Link ref={ref} as={NextLink} {...props} />
-))
-MenuLink.displayName = 'MenuLink'
-
-interface NavbarProps {
-  path: string
-  [key: string]: any
-}
-
-const Navbar = (props: NavbarProps) => {
-  const { path } = props
-
-  return (
-    <Box
-      position="fixed"
-      as="nav"
-      w="100%"
-      bg={useColorModeValue('whiteAlpha.300', 'blackAlpha.400')}
-      css={{ backdropFilter: 'blur(10px)' }}
-      boxShadow={useColorModeValue(
-        '0 2px 10px rgba(0, 0, 0, 0.05)',
-        '0 2px 10px rgba(0, 0, 0, 0.05)'
-      )}
-      zIndex={2}
-      {...props}
-    >
-      <Container
-        display="flex"
-        p={2}
-        maxW="container.md"
-        flexWrap="wrap"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Flex align="center" mr={5}>
-          <Heading as="h1" size="lg" letterSpacing={'tighter'}>
-            <Logo />
-          </Heading>
-        </Flex>
-
-        <Stack
-          direction={{ base: 'column', md: 'row' }}
-          display={{ base: 'none', md: 'flex' }}
-          width={{ base: 'full', md: 'auto' }}
-          alignItems="center"
-          flexGrow={1}
-          mt={{ base: 4, md: 0 }}
-        >
-          <LinkItem href="/projects" path={path} target="">
-            Projects
-          </LinkItem>
-          <LinkItem href="/resume" path={path} target="_blank">
-            Resume
-          </LinkItem>
-          <LinkItem href="/blogs" path={path} target="">
-            Blogs
-          </LinkItem>
-          <LinkItem href="/posts" path={path} target="">
-            Through my lens
-          </LinkItem>
-          <LinkItem
-            target="_blank"
-            href="https://github.com/Ajitesh13"
-            path={path}
+    <header className="sticky top-0 z-50 w-full bg-background">
+      <div className="section-container flex h-14 max-w-screen-2xl items-center">
+        {/* Logo */}
+        <div className="mr-4 hidden md:flex">
+          <Link
+            href="/"
+            className="mr-6 flex items-center space-x-2"
+            prefetch={true}
           >
-            <Icon as={IoLogoGithub} boxSize={5} />
-          </LinkItem>
-        </Stack>
+            <span className="hidden font-bold sm:inline-block text-white">
+              Ajitesh Panda
+            </span>
+          </Link>
+          <nav className="flex items-center gap-6 text-sm">
+            {navItems.map(item => (
+              <Link
+                key={item.href}
+                href={item.href}
+                prefetch={true}
+                className={cn(
+                  'transition-colors hover:text-foreground/80',
+                  isActive(item.href) ? 'text-foreground' : 'text-foreground/60'
+                )}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
-        <Box flex={1} textAlign="right">
-          <ThemeToggleButton />
+        {/* Mobile */}
+        <button
+          className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:text-accent-foreground h-9 py-2 mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden text-white"
+          type="button"
+          aria-label="Toggle Menu"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          {mobileMenuOpen ? (
+            <X className="h-5 w-5" />
+          ) : (
+            <Menu className="h-5 w-5" />
+          )}
+          <span className="ml-2 font-bold">Menu</span>
+        </button>
 
-          <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
-            <Menu isLazy id="navbar-menu">
-              <MenuButton
-                as={IconButton}
-                icon={<HamburgerIcon />}
-                variant="outline"
-                aria-label="Options"
-              />
-              <MenuList>
-                <MenuItem as={MenuLink} href="/">
-                  About
-                </MenuItem>
-                <MenuItem as={MenuLink} href="/projects">
-                  Projects
-                </MenuItem>
-                <MenuItem as={MenuLink} href="/resume" target="_blank">
-                  Resume
-                </MenuItem>
-                <MenuItem as={MenuLink} href="/blogs">
-                  Blogs
-                </MenuItem>
-                <MenuItem as={MenuLink} href="/posts">
-                  Through my lens
-                </MenuItem>
-                <MenuItem as={MenuLink} href="https://github.com/Ajitesh13">
-                  <Box display="flex" gap="10px" alignItems="center">
-                    <Icon as={IoLogoGithub} />
-                    Github
-                  </Box>
-                </MenuItem>
-              </MenuList>
-            </Menu>
-          </Box>
-        </Box>
-      </Container>
-    </Box>
+        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+          <div className="w-full flex-1 md:w-auto md:flex-none">
+            {/* Placeholder for search */}
+          </div>
+          <nav className="flex items-center gap-1">
+            <Button variant="ghost" size="icon" asChild>
+              <a
+                href="https://github.com/Ajitesh13"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+              >
+                <Github className="h-4 w-4" />
+                <span className="sr-only">GitHub</span>
+              </a>
+            </Button>
+            <Button variant="ghost" size="sm" asChild>
+              <Link
+                href="/resume"
+                target="_blank"
+                prefetch={true}
+                className="text-white"
+              >
+                Resume
+              </Link>
+            </Button>
+          </nav>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-white/10">
+          <nav className="grid gap-2 p-4">
+            {navItems.map(item => (
+              <Link
+                key={item.href}
+                href={item.href}
+                prefetch={true}
+                className={cn(
+                  'flex w-full items-center rounded-md p-2 text-sm transition-colors hover:bg-accent',
+                  isActive(item.href)
+                    ? 'text-foreground bg-accent'
+                    : 'text-foreground/60'
+                )}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
+    </header>
   )
 }
 
