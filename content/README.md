@@ -4,6 +4,41 @@ All website content is managed through Markdown files in this directory. Each co
 
 ---
 
+## 🏠 Home Page
+
+**Location:** `content/home.md`  
+**URL:** `/`
+
+### Format
+
+```yaml
+---
+greeting: "Hello, I'm a Hacker from India! 👋"
+name: 'Ajitesh Panda'
+tagline: 'Full Stack Developer at HackerRank'
+bio:
+  - 'Paragraph 1...'
+  - 'Paragraph 2...'
+timeline:
+  - date: 'Nov, 2000'
+    text: 'Born in Odisha, India.'
+interests: 'Art, Music, Travelling...'
+cta:
+  title: "Let's Connect"
+  description: 'Got an exciting project?'
+  buttonText: 'Get in Touch'
+  buttonLink: 'mailto:your@email.com'
+---
+```
+
+### Edit Home Page
+
+Simply edit `content/home.md` and rebuild. No scripts needed - just update the YAML frontmatter!
+
+**All sections** (greeting, bio, timeline, interests, CTA) are customizable.
+
+---
+
 ## 📝 1. Blog Posts
 
 **Location:** `content/blogs/`  
