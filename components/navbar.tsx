@@ -44,8 +44,8 @@ const Navbar = () => {
                 href={item.href}
                 prefetch={true}
                 className={cn(
-                  'transition-colors hover:text-foreground/80',
-                  isActive(item.href) ? 'text-foreground' : 'text-foreground/60'
+                  'transition-colors hover:text-accent-link',
+                  isActive(item.href) ? 'text-accent-link' : 'text-foreground/60'
                 )}
               >
                 {item.label}
@@ -101,7 +101,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-white/10">
+        <div className="md:hidden border-t border-dotted border-white/20">
           <nav className="grid gap-2 p-4">
             {navItems.map(item => (
               <Link
@@ -109,9 +109,9 @@ const Navbar = () => {
                 href={item.href}
                 prefetch={true}
                 className={cn(
-                  'flex w-full items-center rounded-md p-2 text-sm transition-colors hover:bg-accent',
+                  'flex w-full items-center rounded-md p-2 text-sm transition-colors hover:bg-accent hover:text-accent-link',
                   isActive(item.href)
-                    ? 'text-foreground bg-accent'
+                    ? 'text-accent-link bg-accent'
                     : 'text-foreground/60'
                 )}
                 onClick={() => setMobileMenuOpen(false)}

@@ -12,10 +12,10 @@ export default function Books() {
 
   return (
     <MainLayout>
-      <section className="section-container py-20">
+      <section className="section-container py-24">
         <div className="max-w-4xl mx-auto space-y-12">
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-white">Books</h1>
+            <h1 className="text-4xl md:text-5xl heading-mono text-white">Books</h1>
             <p className="text-lg text-white/60">
               My reading list and recommendations
             </p>
@@ -29,12 +29,12 @@ export default function Books() {
                   href={`/books/${book.slug}`}
                   className="block group"
                 >
-                  <article className="space-y-1 border-b border-white/10 pb-3">
+                  <article className="space-y-1 border-b border-dotted border-white/20 pb-3">
                     <div className="flex items-baseline gap-3">
                       <span className="text-xs font-mono text-white/40 flex-shrink-0">
                         {book.year}
                       </span>
-                      <h2 className="text-lg font-semibold text-white group-hover:text-white/80 transition-colors">
+                      <h2 className="text-lg font-semibold text-white group-hover:text-accent-link transition-colors">
                         {book.title}
                       </h2>
                     </div>

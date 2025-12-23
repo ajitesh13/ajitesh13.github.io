@@ -47,12 +47,12 @@ export default async function WorkPage({
 
   return (
     <MainLayout>
-      <section className="section-container py-20">
+      <section className="section-container py-24">
         <div className="max-w-4xl mx-auto space-y-12">
           <Link
             href="/projects"
             prefetch={true}
-            className="text-white/60 hover:text-white transition-colors inline-block"
+            className="text-accent-link hover:text-accent-link/80 transition-colors inline-block"
           >
             ← Back to Projects
           </Link>
@@ -62,7 +62,7 @@ export default async function WorkPage({
               <span className="text-sm font-mono text-white/40">
                 {project.year}
               </span>
-              <h1 className="text-4xl md:text-5xl font-bold text-white">
+              <h1 className="text-4xl md:text-5xl heading-mono text-white">
                 {project.title}
               </h1>
             </div>
@@ -107,17 +107,17 @@ export default async function WorkPage({
             </div>
           )}
 
-          <div className="prose prose-invert max-w-none space-y-6 text-white/80 leading-relaxed border-t border-white/10 pt-8">
+          <div className="prose prose-invert max-w-none space-y-6 text-white/80 leading-relaxed section-divider pt-8">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{
                 h2: ({ children }) => (
-                  <h2 className="text-2xl font-bold text-white mt-8 mb-4">
+                  <h2 className="text-2xl heading-mono text-white mt-8 mb-4">
                     {children}
                   </h2>
                 ),
                 h3: ({ children }) => (
-                  <h3 className="text-xl font-bold text-white mt-6 mb-3">
+                  <h3 className="text-xl heading-mono text-white mt-6 mb-3">
                     {children}
                   </h3>
                 ),
@@ -139,7 +139,7 @@ export default async function WorkPage({
                 a: ({ href, children }) => (
                   <a
                     href={href}
-                    className="text-primary hover:underline"
+                    className="text-accent-link hover:text-accent-link/80"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

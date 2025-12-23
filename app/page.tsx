@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <section className="section-container py-20 md:py-32">
+      <section className="section-container py-24 md:py-32">
         <div className="max-w-4xl mx-auto space-y-12">
           <div className="space-y-6">
             <h1 className="text-5xl md:text-7xl font-bold text-white">
@@ -45,9 +45,9 @@ export default function Home() {
       </section>
 
       {/* Bio Section */}
-      <section className="section-container py-16 border-t border-white/10">
+      <section className="section-container py-20 section-divider">
         <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-2xl font-bold text-white">Timeline</h2>
+          <h2 className="text-2xl heading-mono text-white">Timeline</h2>
 
           <div className="space-y-4">
             {content.timeline.map((item, index) => (
@@ -63,17 +63,17 @@ export default function Home() {
       </section>
 
       {/* Interests Section */}
-      <section className="section-container py-16 border-t border-white/10">
+      <section className="section-container py-20 section-divider">
         <div className="max-w-4xl mx-auto space-y-6">
-          <h2 className="text-2xl font-bold text-white">Interests</h2>
+          <h2 className="text-2xl heading-mono text-white">Interests</h2>
           <p className="text-lg text-white/80">{content.interests}</p>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="section-container py-16 border-t border-white/10">
+      <section className="section-container py-20 section-divider">
         <div className="max-w-4xl mx-auto space-y-6">
-          <h2 className="text-2xl font-bold text-white">{content.cta.title}</h2>
+          <h2 className="text-2xl heading-mono text-white">{content.cta.title}</h2>
           <p className="text-white/80">{content.cta.description}</p>
           <div>
             <Button size="lg" asChild>

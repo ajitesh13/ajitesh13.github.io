@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/JetBrains Mono/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/JetBrains Mono/JetBrainsMono-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 800;
+  font-style: italic;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: 0 0% 0%;
@@ -24,6 +40,8 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
     --radius: 0.5rem;
+    --accent-cta: 14 100% 57%;
+    --accent-link: 188 91% 44%;
   }
 }
 
@@ -34,6 +52,7 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'JetBrains Mono', monospace;
     font-feature-settings:
       'rlig' 1,
       'calt' 1;
@@ -42,6 +61,15 @@
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Link styles */
+  a {
+    @apply text-accent-link hover:text-accent-link/80 transition-colors;
+  }
+
+  a:hover {
+    text-decoration: none;
   }
 
   /* Custom scrollbar */
@@ -66,6 +94,18 @@
 @layer utilities {
   .section-container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .heading-mono {
+    @apply font-mono font-semibold tracking-tight;
+  }
+
+  .section-divider {
+    @apply border-t border-dotted border-white/20;
+  }
+
+  .quote-block {
+    @apply border-l-4 border-accent-link pl-6 py-4 bg-muted/30 my-6 italic text-white/80;
   }
 
   /* View Transitions API for instant navigation feel */

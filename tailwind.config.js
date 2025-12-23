@@ -15,6 +15,16 @@ module.exports = {
       }
     },
     extend: {
+      fontFamily: {
+        sans: [
+          'JetBrains Mono',
+          'monospace'
+        ],
+        mono: [
+          'JetBrains Mono',
+          'monospace'
+        ]
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -48,7 +58,9 @@ module.exports = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
-        }
+        },
+        cta: 'hsl(var(--accent-cta))',
+        'accent-link': 'hsl(var(--accent-link))'
       },
       borderRadius: {
         lg: 'var(--radius)',
