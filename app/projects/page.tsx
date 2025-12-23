@@ -13,10 +13,10 @@ export default function Projects() {
 
   return (
     <MainLayout>
-      <section className="section-container py-20">
+      <section className="section-container py-24">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
+            <h1 className="text-4xl md:text-5xl heading-mono text-white">
               Projects
             </h1>
             <p className="text-lg text-white/60">
@@ -34,7 +34,7 @@ export default function Projects() {
               >
                 <div className="space-y-4">
                   {/* Image */}
-                  <div className="relative w-full h-64 rounded-lg overflow-hidden border border-white/10">
+                  <div className="relative w-full h-64 rounded-lg overflow-hidden border border-white/10 group-hover:border-accent-link/30 transition-colors">
                     <Image
                       src={project.thumbnail}
                       alt={project.title}
@@ -49,7 +49,7 @@ export default function Projects() {
                       <span className="text-sm font-mono text-white/40">
                         {project.year}
                       </span>
-                      <h3 className="text-xl font-semibold text-white group-hover:text-white/80 transition-colors">
+                      <h3 className="text-xl font-semibold text-white group-hover:text-accent-link transition-colors">
                         {project.title}
                       </h3>
                     </div>

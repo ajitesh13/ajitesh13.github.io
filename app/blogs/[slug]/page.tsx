@@ -45,11 +45,11 @@ export default async function BlogPost({
 
   return (
     <MainLayout>
-      <section className="section-container py-20">
+      <section className="section-container py-24">
         <div className="max-w-4xl mx-auto space-y-12">
           <Link
             href="/blogs"
-            className="text-white/60 hover:text-white transition-colors inline-block"
+            className="text-accent-link hover:text-accent-link/80 transition-colors inline-block"
           >
             ← Back to Blog
           </Link>
@@ -63,7 +63,7 @@ export default async function BlogPost({
                 <span className="text-sm text-white/40">•</span>
                 <span className="text-sm text-white/40">{post.readTime}</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white">
+              <h1 className="text-4xl md:text-5xl heading-mono text-white">
                 {post.title}
               </h1>
               <p className="text-xl text-white/60">{post.subtitle}</p>
@@ -74,12 +74,12 @@ export default async function BlogPost({
                 remarkPlugins={[remarkGfm]}
                 components={{
                   h2: ({ children }) => (
-                    <h2 className="text-2xl font-bold text-white mt-8 mb-4">
+                    <h2 className="text-2xl heading-mono text-white mt-8 mb-4">
                       {children}
                     </h2>
                   ),
                   h3: ({ children }) => (
-                    <h3 className="text-xl font-bold text-white mt-6 mb-3">
+                    <h3 className="text-xl heading-mono text-white mt-6 mb-3">
                       {children}
                     </h3>
                   ),
@@ -101,7 +101,7 @@ export default async function BlogPost({
                   a: ({ href, children }) => (
                     <a
                       href={href}
-                      className="text-primary hover:underline"
+                      className="text-accent-link hover:text-accent-link/80"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -120,7 +120,7 @@ export default async function BlogPost({
             </div>
 
             {post.tags.length > 0 && (
-              <footer className="border-t border-white/10 pt-8">
+              <footer className="section-divider pt-8">
                 <div className="flex items-center gap-2 text-sm text-white/40">
                   <span>Tags:</span>
                   {post.tags.map((tag, index) => (

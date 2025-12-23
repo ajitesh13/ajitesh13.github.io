@@ -46,17 +46,17 @@ export default async function PhotoPage({
 
   return (
     <MainLayout>
-      <section className="section-container py-20">
+      <section className="section-container py-24">
         <div className="max-w-6xl mx-auto space-y-12">
           <Link
             href="/posts"
-            className="text-white/60 hover:text-white transition-colors inline-block"
+            className="text-accent-link hover:text-accent-link/80 transition-colors inline-block"
           >
             ← Back to Photos
           </Link>
 
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
+            <h1 className="text-4xl md:text-5xl heading-mono text-white">
               {photo.title}
             </h1>
             <div className="flex items-baseline gap-3 text-sm text-white/60">

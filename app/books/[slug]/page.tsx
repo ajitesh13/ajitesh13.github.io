@@ -45,11 +45,11 @@ export default async function BookPage({
 
   return (
     <MainLayout>
-      <section className="section-container py-20">
+      <section className="section-container py-24">
         <div className="max-w-4xl mx-auto space-y-12">
           <Link
             href="/books"
-            className="text-white/60 hover:text-white transition-colors inline-block"
+            className="text-accent-link hover:text-accent-link/80 transition-colors inline-block"
           >
             ← Back to Books
           </Link>
@@ -72,7 +72,7 @@ export default async function BookPage({
             {/* Book Info */}
             <div className="md:col-span-2 space-y-6">
               <div>
-                <h1 className="text-4xl font-bold text-white mb-2">
+                <h1 className="text-4xl heading-mono text-white mb-2">
                   {book.title}
                 </h1>
                 <p className="text-xl text-white/60">by {book.author}</p>
@@ -93,13 +93,13 @@ export default async function BookPage({
 
               {book.keyTakeaways.length > 0 && (
                 <div className="space-y-3">
-                  <h2 className="text-lg font-semibold text-white">
+                  <h2 className="text-lg heading-mono text-white">
                     Key Takeaways
                   </h2>
                   <ul className="space-y-2 text-sm text-white/80">
                     {book.keyTakeaways.map((takeaway, index) => (
                       <li key={index} className="flex gap-2">
-                        <span className="text-primary">•</span>
+                        <span className="text-accent-link">•</span>
                         <span>{takeaway}</span>
                       </li>
                     ))}
@@ -110,12 +110,12 @@ export default async function BookPage({
           </div>
 
           {/* Review */}
-          <div className="prose prose-invert max-w-none space-y-6 text-white/80 leading-relaxed border-t border-white/10 pt-8">
+          <div className="prose prose-invert max-w-none space-y-6 text-white/80 leading-relaxed section-divider pt-8">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{
                 h2: ({ children }) => (
-                  <h2 className="text-2xl font-bold text-white mt-8 mb-4">
+                  <h2 className="text-2xl heading-mono text-white mt-8 mb-4">
                     {children}
                   </h2>
                 ),
@@ -125,7 +125,7 @@ export default async function BookPage({
                   </p>
                 ),
                 blockquote: ({ children }) => (
-                  <blockquote className="border-l-2 border-primary pl-4 italic text-white/70 my-4">
+                  <blockquote className="border-l-4 border-accent-link pl-4 italic text-white/70 my-4">
                     {children}
                   </blockquote>
                 )

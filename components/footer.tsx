@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="border-t border-white/10 mt-20">
+    <footer className="border-t border-dotted border-white/20 mt-20">
       <div className="section-container py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <p className="text-muted-foreground">
@@ -12,7 +12,7 @@ const Footer = () => {
               href="https://github.com/ajitesh13"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-2 hover:text-foreground transition-colors"
+              className="px-2 text-accent-link hover:text-accent-link/80 transition-colors"
             >
               GitHub
             </a>
@@ -21,7 +21,7 @@ const Footer = () => {
               href="https://twitter.com/iamAjiteshp"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-2 hover:text-foreground transition-colors"
+              className="px-2 text-accent-link hover:text-accent-link/80 transition-colors"
             >
               Twitter
             </a>
@@ -30,7 +30,7 @@ const Footer = () => {
               href="https://www.instagram.com/_beingbest/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-2 hover:text-foreground transition-colors"
+              className="px-2 text-accent-link hover:text-accent-link/80 transition-colors"
             >
               Instagram
             </a>

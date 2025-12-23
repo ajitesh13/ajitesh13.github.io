@@ -14,10 +14,10 @@ export default function Posts() {
 
   return (
     <MainLayout>
-      <section className="section-container py-20">
+      <section className="section-container py-24">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
+            <h1 className="text-4xl md:text-5xl heading-mono text-white">
               Through My Lens
             </h1>
             <p className="text-lg text-white/60">
@@ -35,7 +35,7 @@ export default function Posts() {
                 >
                   <div className="space-y-3">
                     {/* Cover Image */}
-                    <div className="relative w-full h-64 rounded-lg overflow-hidden border border-white/10">
+                    <div className="relative w-full h-64 rounded-lg overflow-hidden border border-white/10 group-hover:border-accent-link/30 transition-colors">
                       <Image
                         src={photo.images[0]}
                         alt={photo.title}
@@ -53,7 +53,7 @@ export default function Posts() {
                         <span>•</span>
                         <span>{photo.location}</span>
                       </div>
-                      <h3 className="text-base font-semibold text-white group-hover:text-white/80 transition-colors">
+                      <h3 className="text-base font-semibold text-white group-hover:text-accent-link transition-colors">
                         {photo.title}
                       </h3>
                     </div>
