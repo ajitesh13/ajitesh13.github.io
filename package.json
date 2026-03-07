@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Ajitesh's website",
   "scripts": {
-    "dev": "next dev --turbopack -H 0.0.0.0",
+    "dev": "node server.js",
+    "dev:next": "next dev --turbopack -H 0.0.0.0",
     "build": "next build --turbopack",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "prettier": "prettier --write .",
     "lint": "next lint",
     "new-blog": "tsx scripts/new-blog.ts",
@@ -18,6 +19,7 @@
   "author": "Ajitesh Panda",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.21.0",
     "@next/third-parties": "^15.5.4",
     "@vercel/analytics": "^1.1.1",
     "class-variance-authority": "^0.7.1",
