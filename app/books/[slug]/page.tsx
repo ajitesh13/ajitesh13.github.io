@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { JsonLd } from '@/components/JsonLd'
 import { getAllBooks, getBookBySlug } from '@/lib/books'
 
 export async function generateStaticParams() {
@@ -27,7 +28,8 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${book.title} by ${book.author}`
+    title: `${book.title} by ${book.author}`,
+    alternates: { canonical: `/books/${slug}` }
   }
 }
 
@@ -43,13 +45,30 @@ export default async function BookPage({
     notFound()
   }
 
+  const bookSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    itemReviewed: {
+      '@type': 'Book',
+      name: book.title,
+      author: { '@type': 'Person', name: book.author }
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: book.rating,
+      bestRating: 5
+    },
+    author: { '@type': 'Person', name: 'Ajitesh Panda' }
+  }
+
   return (
     <MainLayout>
-      <section className="section-container py-20">
+      <JsonLd data={bookSchema} />
+      <section className="section-container py-20 bg-paper text-ink min-h-screen">
         <div className="max-w-4xl mx-auto space-y-12">
           <Link
             href="/books"
-            className="text-white/60 hover:text-white transition-colors inline-block"
+            className="font-mono text-sm text-ink-soft hover:text-ink transition-colors inline-block"
           >
             ← Back to Books
           </Link>
@@ -58,10 +77,10 @@ export default async function BookPage({
             {/* Book Cover */}
             {book.coverImage && (
               <div className="md:col-span-1">
-                <div className="relative w-full h-96 rounded-lg overflow-hidden border border-white/10">
+                <div className="relative w-full h-96 overflow-hidden border border-hairline">
                   <Image
                     src={book.coverImage}
-                    alt={book.title}
+                    alt={`Cover of ${book.title} by ${book.author}`}
                     fill
                     className="object-cover"
                   />
@@ -72,20 +91,20 @@ export default async function BookPage({
             {/* Book Info */}
             <div className="md:col-span-2 space-y-6">
               <div>
-                <h1 className="text-4xl font-bold text-white mb-2">
+                <h1 className="font-display font-bold text-4xl mb-2">
                   {book.title}
                 </h1>
-                <p className="text-xl text-white/60">by {book.author}</p>
+                <p className="font-body text-xl text-ink-soft">by {book.author}</p>
               </div>
 
-              <div className="flex gap-6 text-sm">
+              <div className="flex gap-6 text-sm font-mono">
                 <div>
-                  <span className="text-white/40">Year:</span>{' '}
-                  <span className="text-white/80">{book.year}</span>
+                  <span className="text-ink-soft">Year:</span>{' '}
+                  <span className="text-ink">{book.year}</span>
                 </div>
                 <div>
-                  <span className="text-white/40">Rating:</span>{' '}
-                  <span className="text-white/80">
+                  <span className="text-ink-soft">Rating:</span>{' '}
+                  <span className="text-ink">
                     {'⭐'.repeat(book.rating)}
                   </span>
                 </div>
@@ -93,13 +112,13 @@ export default async function BookPage({
 
               {book.keyTakeaways.length > 0 && (
                 <div className="space-y-3">
-                  <h2 className="text-lg font-semibold text-white">
+                  <h2 className="font-display text-lg font-semibold">
                     Key Takeaways
                   </h2>
-                  <ul className="space-y-2 text-sm text-white/80">
+                  <ul className="font-body space-y-2 text-sm text-ink/90">
                     {book.keyTakeaways.map((takeaway, index) => (
                       <li key={index} className="flex gap-2">
-                        <span className="text-primary">•</span>
+                        <span className="text-seal">•</span>
                         <span>{takeaway}</span>
                       </li>
                     ))}
@@ -110,22 +129,22 @@ export default async function BookPage({
           </div>
 
           {/* Review */}
-          <div className="prose prose-invert max-w-none space-y-6 text-white/80 leading-relaxed border-t border-white/10 pt-8">
+          <div className="font-body max-w-none space-y-6 text-ink/90 leading-relaxed border-t border-hairline pt-8">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{
                 h2: ({ children }) => (
-                  <h2 className="text-2xl font-bold text-white mt-8 mb-4">
+                  <h2 className="font-display font-bold text-ink text-2xl mt-8 mb-4">
                     {children}
                   </h2>
                 ),
                 p: ({ children }) => (
-                  <p className="text-white/80 leading-relaxed my-4">
+                  <p className="text-ink/90 leading-relaxed my-4">
                     {children}
                   </p>
                 ),
                 blockquote: ({ children }) => (
-                  <blockquote className="border-l-2 border-primary pl-4 italic text-white/70 my-4">
+                  <blockquote className="border-l-2 border-seal pl-4 italic text-ink-soft my-4">
                     {children}
                   </blockquote>
                 )

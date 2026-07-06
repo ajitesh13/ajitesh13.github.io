@@ -2,6 +2,7 @@
 greeting: "Hello, I'm a Hacker from India! 👋"
 name: 'Ajitesh Panda'
 tagline: 'Software Engineer at Goldcast (Ex-HackerRank)'
+highlights: "SDE @ Goldcast · Ex-HackerRank · IIIT Bhubaneswar '22"
 bio:
   - 'Hi! Thanks a lot for visiting my site. My name is Ajitesh, and I am a software engineer currently working as an SDE at Goldcast. Previously I was working on HackerRank. I completed my BTech in Computer Science and Engineering from IIIT Bhubaneswar, graduating in 2022.'
   - 'I am a web enthusiast with strong expertise in JavaScript and React, but I have also tinkered around with a variety of technologies such as LLMs, VLMs, Cloud Native, Blockchain, Flutter, Webextensions, and game development using Godot and Unity.'
@@ -30,6 +31,21 @@ timeline:
   - date: 'July 2025'
     text: 'Joined Event Platform Goldcast.io'
 interests: 'Art, Music, Travelling, Photography and of course, building exciting products!'
+social:
+  github: 'https://github.com/ajitesh13'
+  twitter: 'https://twitter.com/iamAjiteshp'
+  instagram: 'https://www.instagram.com/_beingbest/'
+ventures:
+  - name: 'Lookover'
+    tag: 'Primary'
+    description: 'A closer look at the tools and workflows worth paying attention to. Placeholder copy — swap for the real one-liner.'
+    link: '#'
+    primary: true
+  - name: 'Privyy'
+    tag: 'Side project'
+    description: 'Privacy-minded tooling, early days. Placeholder copy — swap for the real one-liner.'
+    link: '#'
+    primary: false
 cta:
   title: "Let's Connect"
   description: "Got an exciting project or idea? I'd love to hear about it."

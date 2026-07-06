@@ -1,87 +1,188 @@
 import type { Metadata } from 'next'
 import MainLayout from '@/components/layouts/main-layout'
 import { Button } from '@/components/ui/button'
-import { ArrowRight } from 'lucide-react'
+import SealMark from '@/components/SealMark'
+import { ArrowRight, Github, Twitter, Instagram } from 'lucide-react'
 import Link from 'next/link'
 import { getHomeContent } from '@/lib/home'
+import { getAllBlogs, formatDate } from '@/lib/blog'
 
 export const metadata: Metadata = {
-  title: 'Ajitesh Panda'
+  title: 'Ajitesh Panda',
+  alternates: { canonical: '/' }
 }
 
 export default function Home() {
   const content = getHomeContent()
+  const posts = getAllBlogs().slice(0, 3)
 
   return (
     <MainLayout>
-      {/* Hero Section */}
-      <section className="section-container py-20 md:py-32">
-        <div className="max-w-4xl mx-auto space-y-12">
-          <div className="space-y-6">
-            <h1 className="text-5xl md:text-7xl font-bold text-white">
+      <div className="bg-paper text-ink">
+        {/* Hero */}
+        <section className="section-container pt-20 pb-24 md:pt-28 md:pb-32">
+          <div className="max-w-4xl">
+            <p className="font-mono text-sm text-seal mb-4">
+              {content.greeting}
+            </p>
+            <h1 className="font-display font-bold text-5xl md:text-7xl tracking-tight mb-4">
               {content.name}
             </h1>
-            <p className="text-xl text-white/60">{content.tagline}</p>
-          </div>
-
-          <div className="space-y-6 text-white/80 leading-relaxed max-w-3xl">
-            {content.bio.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </div>
-
-          <div>
-            <Button size="lg" asChild>
-              <Link
-                href="/projects"
-                prefetch={true}
-                className="inline-flex items-center"
+            <p className="font-mono text-sm text-ink-soft mb-8">
+              {content.highlights}
+            </p>
+            <div className="font-body text-lg md:text-xl leading-relaxed space-y-5 max-w-2xl text-ink/90">
+              {content.bio.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+            <p className="font-mono text-xs text-ink-soft mt-8">
+              {content.interests}
+            </p>
+            <div className="mt-10">
+              <Button
+                size="lg"
+                asChild
+                className="bg-ink text-paper hover:bg-ink/90 font-mono"
               >
-                View Projects <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+                <Link href="/projects" prefetch={true} className="inline-flex items-center">
+                  View Projects <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Bio Section */}
-      <section className="section-container py-16 border-t border-white/10">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-2xl font-bold text-white">Timeline</h2>
+        {/* Building */}
+        <section className="border-t border-hairline">
+          <div className="section-container py-20">
+            <h2 className="font-mono text-sm uppercase tracking-widest text-ink-soft mb-12">
+              Building
+            </h2>
+            <div className="grid md:grid-cols-2 gap-10 md:gap-16">
+              {content.ventures.map(venture => (
+                <a
+                  key={venture.name}
+                  href={venture.link}
+                  className={
+                    venture.primary
+                      ? 'relative bg-paper-deep border border-hairline p-8 md:p-10 -rotate-[0.6deg] shadow-sm hover:shadow-md transition-shadow'
+                      : 'relative bg-paper-deep/60 border border-hairline p-6 md:p-8 rotate-[0.9deg] md:mt-10 hover:shadow-sm transition-shadow'
+                  }
+                >
+                  {venture.primary && (
+                    <SealMark
+                      size={48}
+                      rotate={-4}
+                      className="absolute -top-4 -right-4"
+                    />
+                  )}
+                  <p className="font-mono text-xs text-seal uppercase tracking-widest mb-3">
+                    {venture.tag}
+                  </p>
+                  <h3
+                    className={
+                      venture.primary
+                        ? 'font-display font-bold text-3xl md:text-4xl mb-4'
+                        : 'font-display font-medium text-2xl mb-3'
+                    }
+                  >
+                    {venture.name}
+                  </h3>
+                  <p className="font-body text-ink/80 leading-relaxed">
+                    {venture.description}
+                  </p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
 
-          <div className="space-y-4">
-            {content.timeline.map((item, index) => (
-              <div key={index} className="flex gap-6 text-white/80">
-                <div className="flex-shrink-0 w-28 text-sm font-mono text-white/60">
-                  {item.date}
-                </div>
-                <div className="flex-1">{item.text}</div>
+        {/* Writing */}
+        <section className="border-t border-hairline">
+          <div className="section-container py-20">
+            <h2 className="font-mono text-sm uppercase tracking-widest text-ink-soft mb-12">
+              Writing
+            </h2>
+            <div className="max-w-3xl space-y-0">
+              {posts.map((post, index) => (
+                <Link
+                  key={post.slug}
+                  href={`/blogs/${post.slug}`}
+                  prefetch={true}
+                  className={
+                    'flex items-baseline gap-6 py-6 group' +
+                    (index !== posts.length - 1 ? ' border-b border-hairline' : '')
+                  }
+                >
+                  <span className="font-mono text-xs text-ink-soft w-24 flex-shrink-0">
+                    {formatDate(post.date)}
+                  </span>
+                  <span className="font-body text-xl group-hover:text-bamboo transition-colors flex-1">
+                    {post.title}
+                  </span>
+                  {index === 0 && (
+                    <SealMark size={28} rotate={6} className="flex-shrink-0" />
+                  )}
+                </Link>
+              ))}
+              {posts.length === 0 && (
+                <p className="font-body text-ink-soft">Nothing published yet.</p>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Sign-off */}
+        <section className="border-t border-hairline">
+          <div className="section-container py-24">
+            <div className="max-w-2xl">
+              <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
+                {content.cta.title}
+              </h2>
+              <p className="font-body text-lg text-ink/80 mb-8">
+                {content.cta.description}
+              </p>
+              <Button
+                size="lg"
+                asChild
+                className="bg-seal text-paper hover:bg-seal/90 font-mono"
+              >
+                <a href={content.cta.buttonLink}>{content.cta.buttonText}</a>
+              </Button>
+              <div className="flex items-center gap-5 mt-12 text-ink-soft">
+                <a
+                  href={content.social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-ink transition-colors"
+                >
+                  <Github className="h-5 w-5" />
+                  <span className="sr-only">GitHub</span>
+                </a>
+                <a
+                  href={content.social.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-ink transition-colors"
+                >
+                  <Twitter className="h-5 w-5" />
+                  <span className="sr-only">Twitter</span>
+                </a>
+                <a
+                  href={content.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-ink transition-colors"
+                >
+                  <Instagram className="h-5 w-5" />
+                  <span className="sr-only">Instagram</span>
+                </a>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Interests Section */}
-      <section className="section-container py-16 border-t border-white/10">
-        <div className="max-w-4xl mx-auto space-y-6">
-          <h2 className="text-2xl font-bold text-white">Interests</h2>
-          <p className="text-lg text-white/80">{content.interests}</p>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="section-container py-16 border-t border-white/10">
-        <div className="max-w-4xl mx-auto space-y-6">
-          <h2 className="text-2xl font-bold text-white">{content.cta.title}</h2>
-          <p className="text-white/80">{content.cta.description}</p>
-          <div>
-            <Button size="lg" asChild>
-              <a href={content.cta.buttonLink}>{content.cta.buttonText}</a>
-            </Button>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </MainLayout>
   )
 }

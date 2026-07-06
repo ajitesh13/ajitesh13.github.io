@@ -48,7 +48,19 @@ module.exports = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
-        }
+        },
+        paper: '#EEF0E6',
+        'paper-deep': '#E3E7D7',
+        ink: '#1B1F1B',
+        'ink-soft': '#5B6259',
+        bamboo: '#3E6B4F',
+        seal: '#A83A2A',
+        hairline: '#C9CDBE'
+      },
+      fontFamily: {
+        display: ['var(--font-display)', 'sans-serif'],
+        body: ['var(--font-body)', 'serif'],
+        mono: ['var(--font-mono)', 'monospace']
       },
       borderRadius: {
         lg: 'var(--radius)',

@@ -7,7 +7,11 @@ import { Button } from './ui/button'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
-const Navbar = () => {
+interface NavbarProps {
+  githubUrl: string
+}
+
+const Navbar = ({ githubUrl }: NavbarProps) => {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -24,28 +28,28 @@ const Navbar = () => {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background">
-      <div className="section-container flex h-14 max-w-screen-2xl items-center">
+    <header className="sticky top-0 z-50 w-full bg-paper border-b border-hairline">
+      <div className="section-container flex h-16 max-w-screen-2xl items-center">
         {/* Logo */}
         <div className="mr-4 hidden md:flex">
           <Link
             href="/"
-            className="mr-6 flex items-center space-x-2"
+            className="mr-8 flex items-center space-x-2"
             prefetch={true}
           >
-            <span className="hidden font-bold sm:inline-block text-white">
+            <span className="hidden font-display font-bold sm:inline-block text-ink tracking-tight">
               Ajitesh Panda
             </span>
           </Link>
-          <nav className="flex items-center gap-6 text-sm">
+          <nav className="flex items-center gap-6 text-sm font-mono text-ink-soft">
             {navItems.map(item => (
               <Link
                 key={item.href}
                 href={item.href}
                 prefetch={true}
                 className={cn(
-                  'transition-colors hover:text-foreground/80',
-                  isActive(item.href) ? 'text-foreground' : 'text-foreground/60'
+                  'transition-colors hover:text-ink',
+                  isActive(item.href) ? 'text-ink' : 'text-ink-soft'
                 )}
               >
                 {item.label}
@@ -56,7 +60,7 @@ const Navbar = () => {
 
         {/* Mobile */}
         <button
-          className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:text-accent-foreground h-9 py-2 mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden text-white"
+          className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-9 py-2 mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden text-ink"
           type="button"
           aria-label="Toggle Menu"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -66,7 +70,7 @@ const Navbar = () => {
           ) : (
             <Menu className="h-5 w-5" />
           )}
-          <span className="ml-2 font-bold">Menu</span>
+          <span className="ml-2 font-mono">Menu</span>
         </button>
 
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
@@ -76,10 +80,10 @@ const Navbar = () => {
           <nav className="flex items-center gap-1">
             <Button variant="ghost" size="icon" asChild>
               <a
-                href="https://github.com/Ajitesh13"
+                href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white"
+                className="text-ink hover:text-ink hover:bg-paper-deep"
               >
                 <Github className="h-4 w-4" />
                 <span className="sr-only">GitHub</span>
@@ -90,7 +94,7 @@ const Navbar = () => {
                 href="/resume"
                 target="_blank"
                 prefetch={true}
-                className="text-white"
+                className="text-ink font-mono hover:text-ink hover:bg-paper-deep"
               >
                 Resume
               </Link>
@@ -101,18 +105,16 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-white/10">
-          <nav className="grid gap-2 p-4">
+        <div className="md:hidden border-t border-hairline bg-paper">
+          <nav className="grid gap-2 p-4 font-mono">
             {navItems.map(item => (
               <Link
                 key={item.href}
                 href={item.href}
                 prefetch={true}
                 className={cn(
-                  'flex w-full items-center rounded-md p-2 text-sm transition-colors hover:bg-accent',
-                  isActive(item.href)
-                    ? 'text-foreground bg-accent'
-                    : 'text-foreground/60'
+                  'flex w-full items-center rounded-md p-2 text-sm transition-colors hover:bg-paper-deep',
+                  isActive(item.href) ? 'text-ink bg-paper-deep' : 'text-ink-soft'
                 )}
                 onClick={() => setMobileMenuOpen(false)}
               >

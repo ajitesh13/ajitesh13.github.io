@@ -9,13 +9,30 @@ export interface TimelineItem {
   text: string
 }
 
+export interface Venture {
+  name: string
+  tag: string
+  description: string
+  link: string
+  primary: boolean
+}
+
+export interface SocialLinks {
+  github: string
+  twitter: string
+  instagram: string
+}
+
 export interface HomeContent {
   greeting: string
   name: string
   tagline: string
+  highlights: string
   bio: string[]
   timeline: TimelineItem[]
   interests: string
+  social: SocialLinks
+  ventures: Venture[]
   cta: {
     title: string
     description: string
@@ -32,9 +49,16 @@ export function getHomeContent(): HomeContent {
     greeting: data.greeting || "Hello, I'm a Hacker from India! 👋",
     name: data.name || 'Ajitesh Panda',
     tagline: data.tagline || 'Full Stack Developer',
+    highlights: data.highlights || '',
     bio: data.bio || [],
     timeline: data.timeline || [],
     interests: data.interests || '',
+    social: data.social || {
+      github: 'https://github.com/ajitesh13',
+      twitter: 'https://twitter.com/iamAjiteshp',
+      instagram: 'https://www.instagram.com/_beingbest/'
+    },
+    ventures: data.ventures || [],
     cta: data.cta || {
       title: "Let's Connect",
       description: 'Got an exciting project or idea?',

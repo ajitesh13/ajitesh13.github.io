@@ -6,7 +6,8 @@ import { getAllPhotos } from '@/lib/photos'
 import { formatDate } from '@/lib/blog'
 
 export const metadata: Metadata = {
-  title: 'Through My Lens'
+  title: 'Through My Lens',
+  alternates: { canonical: '/posts' }
 }
 
 export default function Posts() {
@@ -14,13 +15,13 @@ export default function Posts() {
 
   return (
     <MainLayout>
-      <section className="section-container py-20">
+      <section className="section-container py-20 bg-paper text-ink min-h-screen">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
+            <h1 className="font-display font-bold text-4xl md:text-5xl">
               Through My Lens
             </h1>
-            <p className="text-lg text-white/60">
+            <p className="font-body text-lg text-ink-soft">
               Capturing the world one frame at a time
             </p>
           </div>
@@ -35,10 +36,10 @@ export default function Posts() {
                 >
                   <div className="space-y-3">
                     {/* Cover Image */}
-                    <div className="relative w-full h-64 rounded-lg overflow-hidden border border-white/10">
+                    <div className="relative w-full h-64 overflow-hidden border border-hairline">
                       <Image
                         src={photo.images[0]}
-                        alt={photo.title}
+                        alt={`${photo.title} — ${photo.location}`}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
@@ -46,14 +47,14 @@ export default function Posts() {
 
                     {/* Info */}
                     <div className="space-y-1">
-                      <div className="flex items-baseline gap-2 text-xs text-white/40">
+                      <div className="flex items-baseline gap-2 text-xs text-ink-soft">
                         <span className="font-mono">
                           {formatDate(photo.date)}
                         </span>
                         <span>•</span>
                         <span>{photo.location}</span>
                       </div>
-                      <h3 className="text-base font-semibold text-white group-hover:text-white/80 transition-colors">
+                      <h3 className="font-display text-base font-semibold group-hover:text-bamboo transition-colors">
                         {photo.title}
                       </h3>
                     </div>
@@ -62,7 +63,7 @@ export default function Posts() {
               ))}
             </div>
           ) : (
-            <div className="text-white/80">
+            <div className="font-body text-ink/80">
               <p>
                 Coming soon... Trying to put out the world through my lens. Stay
                 tuned!

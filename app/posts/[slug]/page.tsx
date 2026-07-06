@@ -28,7 +28,8 @@ export async function generateMetadata({
   }
 
   return {
-    title: photo.title
+    title: photo.title,
+    alternates: { canonical: `/posts/${slug}` }
   }
 }
 
@@ -46,20 +47,20 @@ export default async function PhotoPage({
 
   return (
     <MainLayout>
-      <section className="section-container py-20">
+      <section className="section-container py-20 bg-paper text-ink min-h-screen">
         <div className="max-w-6xl mx-auto space-y-12">
           <Link
             href="/posts"
-            className="text-white/60 hover:text-white transition-colors inline-block"
+            className="font-mono text-sm text-ink-soft hover:text-ink transition-colors inline-block"
           >
             ← Back to Photos
           </Link>
 
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
+            <h1 className="font-display font-bold text-4xl md:text-5xl">
               {photo.title}
             </h1>
-            <div className="flex items-baseline gap-3 text-sm text-white/60">
+            <div className="flex items-baseline gap-3 text-sm font-mono text-ink-soft">
               <span>{formatDate(photo.date)}</span>
               <span>•</span>
               <span>{photo.location}</span>
@@ -79,7 +80,7 @@ export default async function PhotoPage({
           </div>
 
           {/* Description */}
-          <div className="prose prose-invert max-w-none text-white/80 leading-relaxed">
+          <div className="font-body max-w-none text-ink/90 leading-relaxed">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
               {photo.description}
             </ReactMarkdown>
@@ -90,7 +91,7 @@ export default async function PhotoPage({
             {photo.images.map((image, index) => (
               <div
                 key={index}
-                className="relative w-full h-96 rounded-lg overflow-hidden border border-white/10"
+                className="relative w-full h-96 overflow-hidden border border-hairline"
               >
                 <Image
                   src={image}

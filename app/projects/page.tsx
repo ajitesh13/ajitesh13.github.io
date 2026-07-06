@@ -5,7 +5,8 @@ import Link from 'next/link'
 import { getAllProjects } from '@/lib/projects'
 
 export const metadata: Metadata = {
-  title: 'Projects'
+  title: 'Projects',
+  alternates: { canonical: '/projects' }
 }
 
 export default function Projects() {
@@ -13,13 +14,13 @@ export default function Projects() {
 
   return (
     <MainLayout>
-      <section className="section-container py-20">
+      <section className="section-container py-20 bg-paper text-ink min-h-screen">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
+            <h1 className="font-display font-bold text-4xl md:text-5xl">
               Projects
             </h1>
-            <p className="text-lg text-white/60">
+            <p className="font-body text-lg text-ink-soft">
               A collection of my work and side projects
             </p>
           </div>
@@ -34,10 +35,10 @@ export default function Projects() {
               >
                 <div className="space-y-4">
                   {/* Image */}
-                  <div className="relative w-full h-64 rounded-lg overflow-hidden border border-white/10">
+                  <div className="relative w-full h-64 overflow-hidden border border-hairline">
                     <Image
                       src={project.thumbnail}
-                      alt={project.title}
+                      alt={`${project.title} thumbnail`}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -46,14 +47,14 @@ export default function Projects() {
                   {/* Content */}
                   <div className="space-y-2">
                     <div className="flex items-baseline gap-2">
-                      <span className="text-sm font-mono text-white/40">
+                      <span className="text-sm font-mono text-ink-soft">
                         {project.year}
                       </span>
-                      <h3 className="text-xl font-semibold text-white group-hover:text-white/80 transition-colors">
+                      <h3 className="font-display text-xl font-semibold group-hover:text-bamboo transition-colors">
                         {project.title}
                       </h3>
                     </div>
-                    <p className="text-white/60">{project.description}</p>
+                    <p className="font-body text-ink-soft">{project.description}</p>
                   </div>
                 </div>
               </Link>
