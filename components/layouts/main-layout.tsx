@@ -11,7 +11,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   const { social } = getHomeContent()
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex min-h-screen flex-col bg-paper">
       <Navbar githubUrl={social.github} />
       <main className="relative flex-1">{children}</main>
       <Footer />
