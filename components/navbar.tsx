@@ -20,7 +20,7 @@ const Navbar = ({ githubUrl }: NavbarProps) => {
     { href: '/projects', label: 'Projects' },
     { href: '/blogs', label: 'Blog' },
     { href: '/books', label: 'Books' },
-    { href: '/posts', label: 'Through my lens' }
+    { href: '/posts', label: 'Through My Lens' }
   ]
 
   const isActive = (href: string) => {

@@ -14,6 +14,9 @@
 - [My Journey with Next.js 15](https://ajitesh13.github.io/blogs/my-journey-with-next-js-15): Exploring the latest features and my experience upgrading to Next.js 15 with the App Router and Turbopack
 
 ## Projects
+- [Grimlock](https://ajitesh13.github.io/works/grimlock): Open-source E2EE chat infra, extracted from Privyy.
+- [Lookover](https://ajitesh13.github.io/works/lookover): The black box recorder for AI agents.
+- [Privyy](https://ajitesh13.github.io/works/privyy): End-to-end encrypted LLM chat infrastructure.
 - [Clarity](https://ajitesh13.github.io/works/clarity): Your AI journaling assistant
 - [FamTrack](https://ajitesh13.github.io/works/famtrack): A mobile app for family safety with geofencing
 - [Webedge](https://ajitesh13.github.io/works/webedge): Bring edge to your web performance

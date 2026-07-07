@@ -12,6 +12,7 @@ export interface Project {
   platform: string
   stack: string
   github: string
+  url: string
   thumbnail: string
   images: string[]
   content: string
@@ -42,6 +43,7 @@ export function getAllProjects(): Project[] {
         platform: data.platform || '',
         stack: data.stack || '',
         github: data.github || '',
+        url: data.url || '',
         thumbnail: data.thumbnail || '',
         images: data.images || [],
         content
@@ -67,6 +69,7 @@ export function getProjectBySlug(slug: string): Project | null {
       platform: data.platform,
       stack: data.stack,
       github: data.github,
+      url: data.url || '',
       thumbnail: data.thumbnail,
       images: data.images || [],
       content

@@ -83,17 +83,21 @@ export default async function WorkPage({
             <p className="font-body text-xl text-ink-soft">{project.description}</p>
 
             <div className="flex gap-8 text-sm font-mono">
-              <div>
-                <span className="text-ink-soft">Platform:</span>{' '}
-                <span className="text-ink">{project.platform}</span>
-              </div>
-              <div>
-                <span className="text-ink-soft">Stack:</span>{' '}
-                <span className="text-ink">{project.stack}</span>
-              </div>
+              {project.platform && (
+                <div>
+                  <span className="text-ink-soft">Platform:</span>{' '}
+                  <span className="text-ink">{project.platform}</span>
+                </div>
+              )}
+              {project.stack && (
+                <div>
+                  <span className="text-ink-soft">Stack:</span>{' '}
+                  <span className="text-ink">{project.stack}</span>
+                </div>
+              )}
             </div>
 
-            {project.github && (
+            {(project.github || project.url) && (
               <div>
                 <Button
                   size="sm"
@@ -101,11 +105,11 @@ export default async function WorkPage({
                   className="bg-ink text-paper hover:bg-ink/90 font-mono"
                 >
                   <a
-                    href={project.github}
+                    href={project.github || project.url}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    View on GitHub →
+                    {project.github ? 'View on GitHub →' : 'Visit Site →'}
                   </a>
                 </Button>
               </div>
