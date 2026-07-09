@@ -49,7 +49,7 @@ const Navbar = ({ githubUrl }: NavbarProps) => {
                 prefetch={true}
                 className={cn(
                   'transition-colors hover:text-ink',
-                  isActive(item.href) ? 'text-ink' : 'text-ink-soft'
+                  isActive(item.href) ? 'text-bamboo' : 'text-ink-soft'
                 )}
               >
                 {item.label}
@@ -114,7 +114,7 @@ const Navbar = ({ githubUrl }: NavbarProps) => {
                 prefetch={true}
                 className={cn(
                   'flex w-full items-center rounded-md p-2 text-sm transition-colors hover:bg-paper-deep',
-                  isActive(item.href) ? 'text-ink bg-paper-deep' : 'text-ink-soft'
+                  isActive(item.href) ? 'text-bamboo bg-paper-deep' : 'text-ink-soft'
                 )}
                 onClick={() => setMobileMenuOpen(false)}
               >

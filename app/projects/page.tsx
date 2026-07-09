@@ -35,7 +35,7 @@ export default function Projects() {
               >
                 <div className="space-y-4">
                   {/* Image */}
-                  <div className="relative w-full h-64 overflow-hidden border border-hairline">
+                  <div className="relative w-full h-64 overflow-hidden rounded-lg border border-hairline">
                     <Image
                       src={project.thumbnail}
                       alt={`${project.title} thumbnail`}

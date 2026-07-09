@@ -1,21 +1,15 @@
 import type { Metadata, Viewport } from 'next'
-import { Space_Grotesk, Source_Serif_4, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Analytics } from '@vercel/analytics/react'
 import { JsonLd } from '@/components/JsonLd'
 import { getPersonSchema } from '@/lib/schema'
 import '../styles/globals.css'
 
-const spaceGrotesk = Space_Grotesk({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['500', '700'],
-  variable: '--font-display'
-})
-
-const sourceSerif = Source_Serif_4({
-  subsets: ['latin'],
-  weight: ['400', '600'],
-  variable: '--font-body'
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-inter'
 })
 
 const jetbrainsMono = JetBrains_Mono({
@@ -72,7 +66,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${spaceGrotesk.variable} ${sourceSerif.variable} ${jetbrainsMono.variable}`}
+      className={`dark ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <body>
         <JsonLd data={getPersonSchema()} />

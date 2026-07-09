@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import MainLayout from '@/components/layouts/main-layout'
 import { Button } from '@/components/ui/button'
-import SealMark from '@/components/SealMark'
 import { ArrowRight, Github, Twitter, Instagram } from 'lucide-react'
 import Link from 'next/link'
 import { getHomeContent } from '@/lib/home'
@@ -22,7 +21,7 @@ export default function Home() {
         {/* Hero */}
         <section className="section-container pt-20 pb-24 md:pt-28 md:pb-32">
           <div className="max-w-4xl">
-            <p className="font-mono text-sm text-seal mb-4">
+            <p className="font-mono text-sm text-ink-soft mb-4">
               {content.greeting}
             </p>
             <h1 className="font-display font-bold text-5xl md:text-7xl tracking-tight mb-4">
@@ -66,18 +65,11 @@ export default function Home() {
                   href={venture.link}
                   className={
                     venture.primary
-                      ? 'relative bg-paper-deep border border-hairline p-8 md:p-10 -rotate-[0.6deg] shadow-sm hover:shadow-md transition-shadow'
-                      : 'relative bg-paper-deep/60 border border-hairline p-6 md:p-8 rotate-[0.9deg] md:mt-10 hover:shadow-sm transition-shadow'
+                      ? 'relative rounded-lg bg-paper-deep border border-hairline p-8 md:p-10 hover:border-bamboo/50 transition-colors'
+                      : 'relative rounded-lg bg-paper-deep/60 border border-hairline p-6 md:p-8 hover:border-bamboo/50 transition-colors'
                   }
                 >
-                  {venture.primary && (
-                    <SealMark
-                      size={48}
-                      rotate={-4}
-                      className="absolute -top-4 -right-4"
-                    />
-                  )}
-                  <p className="font-mono text-xs text-seal uppercase tracking-widest mb-3">
+                  <p className="font-mono text-xs text-ink-soft uppercase tracking-widest mb-3">
                     {venture.tag}
                   </p>
                   <h3
@@ -121,9 +113,6 @@ export default function Home() {
                   <span className="font-body text-xl group-hover:text-bamboo transition-colors flex-1">
                     {post.title}
                   </span>
-                  {index === 0 && (
-                    <SealMark size={28} rotate={6} className="flex-shrink-0" />
-                  )}
                 </Link>
               ))}
               {posts.length === 0 && (
@@ -146,7 +135,7 @@ export default function Home() {
               <Button
                 size="lg"
                 asChild
-                className="bg-seal text-paper hover:bg-seal/90 font-mono"
+                className="bg-bamboo text-paper hover:bg-bamboo/90 font-mono"
               >
                 <a href={content.cta.buttonLink}>{content.cta.buttonText}</a>
               </Button>

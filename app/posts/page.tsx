@@ -36,7 +36,7 @@ export default function Posts() {
                 >
                   <div className="space-y-3">
                     {/* Cover Image */}
-                    <div className="relative w-full h-64 overflow-hidden border border-hairline">
+                    <div className="relative w-full h-64 overflow-hidden rounded-lg border border-hairline">
                       <Image
                         src={photo.images[0]}
                         alt={`${photo.title} — ${photo.location}`}
